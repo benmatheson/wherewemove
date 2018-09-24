@@ -3228,7 +3228,7 @@ const countyData = {
 	"09015": "Windham County, Connecticut"
 };
 
-d3.csv("data/county.csv", function(migrationData) {
+d3.csv("data/countyMin.csv", function(migrationData) {
 	const margin = {
 		top: 10,
 		right: 10,

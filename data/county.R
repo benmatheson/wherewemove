@@ -14,11 +14,31 @@ dataRaw <- "county-to-county-2011-2015-current-residence-sort.xlsx" %>%
 
 
 
+dataRaw1 <- "county-to-county-2011-2015-previous-residence-sort.xlsx" %>% 
+  excel_sheets() %>% 
+  set_names() %>% 
+  map_df(~ read_excel(path = "county-to-county-2011-2015-previous-residence-sort.xlsx", sheet=.x), .id="sheet")
+
+
+unqLoc <- as.data.frame(unique(county$currentLocation))
+colnames(unqLoc) <- "currentLocation"
 
 
 
+dis <- distinct(county, currentFips, .keep_all = TRUE)
+dis <-  dis %>% select(currentFips, currentLocation)
 
+write_json(dis, "countiesDistinct.json")
+
+
+
+unqLoc <- mutate(fips =  county[ ,currentLocation==unqLoc$currentLocation]  )
+locations <- inner_join(unqLoc, county)
+View(locations)
 # countyRaw <- read_xlsx("county-to-county-2011-2015-current-residence-sort.xlsx")
+
+
+
 
 
 View(countyRaw)
@@ -57,3 +77,29 @@ View(countySpread)
 View(countySpread)
 write_csv(county, "county.csv")
 write_json(county, "county.json")
+
+
+
+
+
+
+
+clal <- county %>% filter(currentCounty=="Clallam County")
+clalFor <- county %>% filter(formerCounty=="Clallam County")
+
+
+hen <-  county %>% filter(currentCounty=="Hennepin County")
+henFor <-  county %>% filter(formerCounty=="Hennepin County")
+
+
+View(clal)
+View(clalFor)
+
+View(henFor)
+
+
+
+
+
+
+
