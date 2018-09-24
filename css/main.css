@@ -15,7 +15,7 @@ html {
     background-color: whitesmoke;
     font-size: 1em;
     line-height: 1.4;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 /*
@@ -138,56 +138,99 @@ h3 {
 /*svg {
     display: block;
 }*/
+
+.resultsList,
+.resultsRight,
+.countyRight,
+.mainCounty {
+    min-width: 220px;
+}
+
+.resultsList,
+.resultsRight {
+}
+
+.countyRight,
+.mainCounty {
+    padding: 3px;
+    padding-left: 9px;
+    /*border-radius: 4px;*/
+    color: #444;
+
+    /*background-color: rgba(0, 0, 0, 0.64);*/
+    /*color: whitesmoke;*/
+    /*border: solid #222 2px;*/
+    /*    background-color: rgba(255, 255, 255, 0.3);
+*/
+    background-color: rgba(255, 255, 255, 0.7);
+
+    position: absolute;
+    display: inline;
+    /*left: 300px;*/
+    top: 110px;
+    font-size: 1rem;
+    border-top: solid 5px salmon;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: #444;
+
+    animation: ani 0.1s ease-in-out;
+}
+
 .resultsList {
     position: absolute;
-    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.15);
+    /*box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.15);*/
     padding: 9px;
     border-radius: 4px;
+
     /*display: inline;*/
     left: 300px;
     top: 150px;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 100;
-    color: #444;
-    font-size: 0.9rem;
+    /*color: #444;*/
+    /*color: dimgray;*/
+    font-size: 0.8rem;
     list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.7);
     animation: ani 0.1s ease-in-out;
 }
 
 .resultsRight {
     position: absolute;
-    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.15);
+    /*box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.15);*/
     padding: 9px;
     border-radius: 4px;
     /*display: inline;*/
     right: 250px;
     top: 150px;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 100;
     color: #444;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.7);
     animation: ani 0.1s ease-in-out;
 }
 
 .countyRight {
-    padding: 7px;
+    /*    padding: 7px;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.64);
     color: whitesmoke;
+    border-left: solid 7px salmon;*/
+
     /*border: solid #222 2px;*/
     position: absolute;
     display: inline;
     right: 250px;
-    top: 100px;
-    font-size: 1.1rem;
+    /*    top: 110px;
+    font-size: 1rem;
     font-family: sans-serif;
-    font-weight: 900;
+    font-weight: 900;*/
     /*color: #444;*/
 
-    animation: ani 0.1s ease-in-out;
+    /*animation: ani 0.1s ease-in-out;*/
 }
 
 .movers {
@@ -195,19 +238,25 @@ h3 {
     /*color: yellow;*/
 }
 .mainCounty {
-    padding: 7px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.64);
-    color: whitesmoke;
+    /* padding: 3px;
+    padding-left: 9px;*/
+    /*border-radius: 4px;*/
+    /*color: #444;*/
+
+    /*background-color: rgba(0, 0, 0, 0.64);*/
+    /*color: whitesmoke;*/
     /*border: solid #222 2px;*/
-    position: absolute;
-    display: inline;
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+
+    /* position: absolute;
+    display: inline;*/
     left: 300px;
-    top: 100px;
-    font-size: 1.1rem;
+    /* top: 110px;
+    font-size: 1rem;
+    border-left: solid 7px salmon;
     font-family: sans-serif;
     font-weight: 900;
-    /*color: #444;*/
+    color: #444;*/
 
     animation: ani 0.1s ease-in-out;
 
@@ -217,8 +266,8 @@ h3 {
 @keyframes ani {
     from {
         /*transform: translateY(10px);*/
-        transform: scale(0.96);
-        opacity: 0.7;
+        transform: scale(0.99);
+        opacity: 0.9;
     }
 
     to {

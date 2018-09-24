@@ -13,11 +13,11 @@ dataRaw <- "county-to-county-2011-2015-current-residence-sort.xlsx" %>%
   map_df(~ read_excel(path = "county-to-county-2011-2015-current-residence-sort.xlsx", sheet=.x), .id="sheet")
 
 
-
-dataRaw1 <- "county-to-county-2011-2015-previous-residence-sort.xlsx" %>% 
-  excel_sheets() %>% 
-  set_names() %>% 
-  map_df(~ read_excel(path = "county-to-county-2011-2015-previous-residence-sort.xlsx", sheet=.x), .id="sheet")
+# 
+# dataRaw1 <- "county-to-county-2011-2015-previous-residence-sort.xlsx" %>% 
+#   excel_sheets() %>% 
+#   set_names() %>% 
+#   map_df(~ read_excel(path = "county-to-county-2011-2015-previous-residence-sort.xlsx", sheet=.x), .id="sheet")
 
 
 unqLoc <- as.data.frame(unique(county$currentLocation))
@@ -61,9 +61,10 @@ county <- county %>% mutate(formerFips = paste0(formerStateFips, formerFips))
 
 county <- county %>% mutate(currentFips = substr(county$currentFips, 2,6))
 county <- county %>% mutate(formerFips = substr(county$formerFips, 2,6))
-county <- county %>% select(-currentStateFips, -formerStateFips, -currentCountyFips, -formerCountyFips)
 
-write_csv(county, "countyBackup.csv")
+county <- county %>% select(-currentStateFips, -formerStateFips, -currentState, -currentCounty, -formerState, -formerCounty, -currentLocation, -formerLocation)
+
+write_csv(county, "countyMin.csv")
 
 countyMin <-  county %>% mutate(id=1:n()) %>% select (id, currentFips, formerFips, number)
 

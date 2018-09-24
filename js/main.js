@@ -3476,7 +3476,7 @@ d3.csv("data/countyMin.csv", function(migrationData) {
 			// 	parseInt(sorted[0].number),
 			// 	parseInt(sorted[currentData.length - 1].number)
 
-			const display = sorted.slice(sorted.length - 5, sorted.length);
+			const display = sorted.slice(sorted.length - 10, sorted.length);
 			console.log("display");
 			console.log(display);
 
@@ -3509,7 +3509,8 @@ d3.csv("data/countyMin.csv", function(migrationData) {
 					"class",
 					d => (coordinates > 700 ? "mainCounty" : "countyRight")
 				)
-				.text(d => countyData[currentCounty]);
+				.text(d => `                   ${countyData[currentCounty]}`);
+			// .attr("y", coordinates);
 
 			list.selectAll("li")
 				.data(displayData)
