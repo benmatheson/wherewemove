@@ -7,6 +7,16 @@ setwd("projects/county/data")
 getwd()
 
 
+mn <- "county-to-county-2011-2015-current-residence-sort.xlsx"
+
+mnData <-read_xlsx(mn, sheet="Minnesota")
+azData <-read_xlsx(mn, sheet="Arizona")
+
+
+
+View(azData)
+View(dataRaw)
+
 dataRaw <- "county-to-county-2011-2015-current-residence-sort.xlsx" %>% 
   excel_sheets() %>% 
   set_names() %>% 
@@ -93,11 +103,18 @@ hen <-  county %>% filter(currentCounty=="Hennepin County")
 henFor <-  county %>% filter(formerCounty=="Hennepin County")
 
 
+
+jun <-  county %>% filter(County=="Juneau City and Borough")
+junFor <-  county %>% filter(formerCounty=="Juneau City and Borough")
+
+
 View(clal)
 View(clalFor)
 
 View(henFor)
 
+View(jun)
+View(junFor)
 
 
 

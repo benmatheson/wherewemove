@@ -3251,6 +3251,19 @@ d3.csv("data/countyMin.csv", function(migrationData) {
 		.attr("width", width - margin.left - margin.right)
 		.attr("height", height - margin.top - margin.bottom);
 
+	const leg = d3
+		.select("#map")
+		.append("div")
+		.attr("class", "legendContainer");
+
+	leg.append("p")
+		.text(d => "Fewest")
+		.attr("class", "legendText");
+	leg.append("div").attr("class", "legend");
+	leg.append("p")
+		.text(d => "Most")
+		.attr("class", "legendText");
+
 	var path = d3.geoPath().projection(projection);
 
 	d3.json("data/tl_2017_us_county3.json", function(error, mapData) {
@@ -3687,11 +3700,12 @@ d3.csv("data/countyMin.csv", function(migrationData) {
 			// d3.select(this).style("fill", "#333");
 			// console.log(this)
 
+			d3.select(this).style("stroke", "#777");
+			d3.select(this).style("stroke-width", 2);
+
 			d3.selectAll("#map ul").remove();
 			d3.selectAll("#map h5").remove();
 			changeFill(ev, pageX);
-			d3.select(this).style("stroke", "#777");
-			d3.select(this).style("stroke-width", 1.3);
 
 			// console.log(ev.getBoundingClientRect());
 			// console.log(d3.ev.pageX);
